@@ -1,0 +1,84 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define PI 3.142
+#include <math.h>
+
+
+double cal_aire_cerc(float r ,float A){
+    A = PI * pow(r, 2) ;
+    return A;
+}
+double cal_aire_rect(float L,float l,float A){
+    A = l * L;
+    return A;
+}
+double calc_perim_rect(float L, float l, float perim) {
+    perim = 2*L + 2*l;
+    return perim;
+}
+double calc_perim_cerc(float r, float perim) {
+    perim = 2*PI * r ;
+    return perim;
+}
+
+
+
+
+double main()
+{
+	float perim = 0;
+    float Aire = 0;
+    float L = 0;
+    float l = 0;
+    float rayon = 0;
+    int choix = 0;
+
+    printf("Choisir le type de calcule,      1: Aire Rectangle/Carre        2: Aire Cercle        3: Perimetre Rectangle/Carre      4: Perimetre Cercle\n");
+    scanf("%d", &choix);
+
+
+    if(choix == 1) {
+
+        printf("entrer la longueur du Rectangle/Carre\n");
+        scanf("%f", &L);
+        printf("entrer la largeur du Rectangle/Carre\n");
+        scanf("%f", &l);
+        Aire = cal_aire_rect(L, l, Aire);
+
+        printf("L'aire est de %f",Aire);
+    }
+
+    else if(choix == 2) {
+
+
+        printf("entrer le rayon\n");
+        scanf("%f", &rayon);
+        Aire = cal_aire_cerc(rayon, Aire);
+
+
+        printf("L'aire est de %f",Aire);
+    }
+
+    else if(choix == 3) {
+
+
+        printf("entrer la longueur du Rectangle/Carre\n");
+        scanf("%f", &L);
+        printf("entrer la largeur du Rectangle/Carre\n");
+        scanf("%f", &l);
+        perim = calc_perim_rect(L, l, perim);
+
+        printf("Le perimetre est de %f",perim);
+    }
+
+	else if(choix == 4) {
+
+
+        printf("entrer le rayon\n");
+        scanf("%f", &rayon);
+        perim = calc_perim_cerc(rayon, perim);
+
+        printf("Le perimetre est de %f",perim);
+    }
+
+}
